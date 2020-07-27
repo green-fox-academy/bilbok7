@@ -7,10 +7,9 @@ public class UrlFixer {
         // Try to solve it more than once using different String functions!
 
         System.out.println(fixUrl(url));
-
     }
+
     public static String fixUrl (String url) {
         return url.replace("https", "https:" ).replace("nevertellmethebots", "nevertellmetheodds");
     }
-
 }
