@@ -1,6 +1,6 @@
 package greenFoxOrganization;
 
-public class Mentor extends Person {
+public class Mentor extends Person implements Cloneable{
 
   private MentorLevel level;
 
@@ -24,5 +24,10 @@ public class Mentor extends Person {
       System.out.println("Hi, I'm " + this.getName() + ", a " + this.getAge() +
           " year old " + this.getGender() + " " + this.level + " mentor.");
     }
+
+  @Override
+  protected Object clone() throws CloneNotSupportedException {
+    return new Mentor(this.getName(), this.getAge(), this.getGender(), this.level);
+  }
   }
 

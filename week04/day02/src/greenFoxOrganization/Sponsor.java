@@ -1,6 +1,6 @@
 package greenFoxOrganization;
 
-public class Sponsor extends Person {
+public class Sponsor extends Person implements Cloneable{
 
   private String company;
   private int hiredStudents;
@@ -27,5 +27,10 @@ public class Sponsor extends Person {
 
   public void getGoal() {
     System.out.println("Hire brilliant junior software developers.");
+  }
+
+  @Override
+  protected Object clone() throws CloneNotSupportedException {
+    return new Sponsor(this.getName(), this.getAge(), this.getGender(), this.company);
   }
 }
