@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Webshop</title>
+    <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+<nav>
+    <header>
+        <div>
+            <h1><a href="/webshop">My Webshop</a></h1>
+            <h1><a href="/more-filters">More >></a></h1>
+        </div>
+        <hr>
+    </header>
+    <ul>
+        <li><a href="/only-available">Only available</a></li>
+        <li><a href="/cheapest-first">Cheapest first</a></li>
+        <li><a href="/contains-nike">Contains Nike</a></li>
+        <li><a href="/average-stock">Average stock</a></li>
+        <li><a href="/most-expensive">Most expensive available</a></li>
+    </ul>
+    <form method="post" action="/search">
+        <label for="search">Search for:</label>
+        <textarea id="search"></textarea>
+        <button type="submit"></button>
+    </form>
+</nav>
+<main>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Quantity of Stock</th>
+        </tr>
+        <tr th:each="item : ${items}">
+            <td class="td-left" th:text="${item.getName()}"></td>
+            <td class="td-left" th:text="${item.getDescription()}"></td>
+            <td class="td-center" th:text="${item.getPrice()}"></td>
+            <td class="td-center" th:text="${item.getQuantityOfStock()}"></td>
+        </tr>
+    </table>
+</main>
+</body>
+</html>
